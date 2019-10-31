@@ -1,13 +1,9 @@
-## My Project
+# AWSSDK.CognitoSync.SyncManager
 
-TODO: Fill this README out!
+__Please use Amazon AppSync. This repository is provided for existing customers.__
 
-Be sure to:
+The AWS SDK for .NET CognitoSync SyncManager enables customers to easily sync data with Cognito with non-constant network availablity.
 
-* Change the title in this README
-* Edit your repository description on GitHub
+To build the repository into a NuGet package for distribution, run the *full-build* msbuild target.
 
-## License
-
-This project is licensed under the Apache-2.0 License.
-
+If you are looking for the Unity SyncManager, it is located in the "AWS SDK for .NET - Unity Archive."

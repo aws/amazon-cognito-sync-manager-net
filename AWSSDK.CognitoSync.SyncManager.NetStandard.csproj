@@ -1,0 +1,127 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
+    <DefineConstants>$(DefineConstants);NETSTANDARD;AWS_ASYNC_API</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' == 'netstandard1.3'">$(DefineConstants);NETSTANDARD13;ADD_SUPPORT_ICLONEABLE;ADD_SUPPORT_IORDERED_DICTIONARY</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' == 'netstandard2.0'">$(DefineConstants);NETSTANDARD20</DefineConstants>
+    <DebugType>portable</DebugType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>AWSSDK.CognitoSync.SyncManager</AssemblyName>
+    <PackageId>AWSSDK.CognitoSync.SyncManager</PackageId>
+
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+
+    <NetStandardImplicitPackageVersion Condition="'$(TargetFramework)' == 'netstandard1.3'">1.6.0</NetStandardImplicitPackageVersion>
+  </PropertyGroup>
+  <Choose>
+    <When Condition=" '$(AWSKeyFile)' == '' ">
+      <PropertyGroup>
+        <AssemblyOriginatorKeyFile>awssdk.dll.snk</AssemblyOriginatorKeyFile>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <AssemblyOriginatorKeyFile>$(AWSKeyFile)</AssemblyOriginatorKeyFile>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+
+  <ItemGroup>
+    <Compile Remove="**/_pcl/**" />
+    <Compile Remove="**/_pcl-sl/**" />
+    <Compile Remove="**/_bcl35/**" />
+    <Compile Remove="**/_bcl45/**" />
+    <Compile Remove="**/_bcl/**" />
+    <Compile Remove="**/_bcl+sl/**" />
+    <Compile Remove="**/_android/**" />
+    <Compile Remove="**/_ios/**" />
+    <Compile Remove="**/_pclReference/**" />
+    <Compile Remove="**/_win8/**" />
+    <Compile Remove="**/_winPhone81/**" />
+    <Compile Remove="**/_winPhoneSilverlight8/**" />
+    <Compile Remove="**/_winstorage/**" />
+    <Compile Remove="**/Custom/SyncManager/**" />
+    <Compile Remove="**/obj/**" />
+    <None Remove="**/obj/**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Custom\SyncManager\Exceptions\" />
+    <Folder Include="Custom\SyncManager\Storage\_async\" />
+    <Folder Include="Custom\SyncManager\Storage\_bcl35\" />
+    <Folder Include="Custom\SyncManager\Storage\_bcl\" />
+    <Folder Include="Custom\SyncManager\Storage\_pcl\" />
+    <Folder Include="Custom\SyncManager\Util\" />
+    <Folder Include="Custom\SyncManager\_async\" />
+    <Folder Include="Custom\SyncManager\_bcl35\" />
+    <Folder Include="Custom\SyncManager\_bcl45\" />
+    <Folder Include="Custom\SyncManager\_bcl\" />
+    <Folder Include="Custom\SyncManager\_pcl\" />
+    <Folder Include="obj\AWSSDK.CognitoSync.SyncManager.Net35\Debug\net35\" />
+    <Folder Include="obj\AWSSDK.CognitoSync.SyncManager.Net45\Debug\net45\" />
+    <Folder Include="packages\AWSSDK.Core.3.3.103.29\lib\MonoAndroid10\" />
+    <Folder Include="packages\Microsoft.Bcl.1.1.10\lib\monoandroid\" />
+    <Folder Include="packages\Microsoft.Bcl.1.1.10\lib\monotouch\" />
+    <Folder Include="packages\Microsoft.Bcl.1.1.10\lib\net40\" />
+    <Folder Include="packages\Microsoft.Bcl.1.1.10\lib\Xamarin.iOS10\" />
+    <Folder Include="packages\Microsoft.Bcl.Build.1.0.14\content\net40\" />
+    <Folder Include="packages\Microsoft.Bcl.Build.1.0.14\content\netcore45\" />
+    <Folder Include="packages\Microsoft.Bcl.Build.1.0.14\content\portable-net40+win8+sl4+wp71+wpa81\" />
+    <Folder Include="packages\Microsoft.Bcl.Build.1.0.14\content\sl4-windowsphone71\" />
+    <Folder Include="packages\Microsoft.Bcl.Build.1.0.14\content\sl4\" />
+    <Folder Include="packages\Microsoft.Net.Http.2.2.29\lib\monoandroid\" />
+    <Folder Include="packages\PCLStorage.1.0.2\lib\sl5\" />
+    <Folder Include="packages\PCLStorage.1.0.2\lib\wp8\" />
+    <Folder Include="packages\SQLitePCLRaw.bundle_green.1.0.1\build\wp80\arm\" />
+    <Folder Include="packages\SQLitePCLRaw.bundle_green.1.0.1\build\wp80\x86\" />
+    <Folder Include="packages\SQLitePCLRaw.bundle_green.1.0.1\build\wp8\" />
+    <Folder Include="packages\SQLitePCLRaw.bundle_green.1.0.1\lib\MonoAndroid\" />
+    <Folder Include="packages\SQLitePCLRaw.bundle_green.1.0.1\lib\MonoTouch\" />
+    <Folder Include="packages\SQLitePCLRaw.bundle_green.1.0.1\lib\net35\" />
+    <Folder Include="packages\SQLitePCLRaw.bundle_green.1.0.1\lib\net40\" />
+    <Folder Include="packages\SQLitePCLRaw.bundle_green.1.0.1\lib\net45\" />
+    <Folder Include="packages\SQLitePCLRaw.bundle_green.1.0.1\lib\netcoreapp\" />
+    <Folder Include="packages\SQLitePCLRaw.bundle_green.1.0.1\lib\netstandard1.1\" />
+    <Folder Include="packages\SQLitePCLRaw.bundle_green.1.0.1\lib\portable-net40+sl5+netcore45+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\" />
+    <Folder Include="packages\SQLitePCLRaw.core.1.0.1\lib\MonoAndroid\" />
+    <Folder Include="packages\SQLitePCLRaw.core.1.0.1\lib\MonoTouch\" />
+    <Folder Include="packages\SQLitePCLRaw.core.1.0.1\lib\net35\" />
+    <Folder Include="packages\SQLitePCLRaw.core.1.0.1\lib\net40\" />
+    <Folder Include="packages\SQLitePCLRaw.core.1.0.1\lib\net45\" />
+    <Folder Include="packages\SQLitePCLRaw.core.1.0.1\lib\netstandard1.0\" />
+    <Folder Include="packages\System.Data.SQLite.Core.1.0.97.0\build\net20\x64\" />
+    <Folder Include="packages\System.Data.SQLite.Core.1.0.97.0\build\net20\x86\" />
+    <Folder Include="packages\System.Data.SQLite.Core.1.0.97.0\build\net40\x64\" />
+    <Folder Include="packages\System.Data.SQLite.Core.1.0.97.0\build\net40\x86\" />
+    <Folder Include="packages\System.Data.SQLite.Core.1.0.97.0\build\net451\x86\" />
+    <Folder Include="packages\System.Data.SQLite.Core.1.0.97.0\build\net45\x64\" />
+    <Folder Include="packages\System.Data.SQLite.Core.1.0.97.0\build\net45\x86\" />
+    <Folder Include="packages\System.Data.SQLite.Core.1.0.97.0\lib\net20\" />
+    <Folder Include="packages\System.Data.SQLite.Core.1.0.97.0\lib\net40\" />
+    <Folder Include="packages\System.Data.SQLite.Core.1.0.97.0\lib\net451\" />
+    <Folder Include="packages\System.Data.SQLite.Core.1.0.97.0\lib\net45\" />
+    <Folder Include="packages\System.Data.SQLite.EF6.1.0.97.0\content\net40\" />
+    <Folder Include="packages\System.Data.SQLite.EF6.1.0.97.0\content\net451\" />
+    <Folder Include="packages\System.Data.SQLite.EF6.1.0.97.0\content\net45\" />
+    <Folder Include="packages\System.Data.SQLite.EF6.1.0.97.0\lib\net40\" />
+    <Folder Include="packages\System.Data.SQLite.EF6.1.0.97.0\lib\net451\" />
+    <Folder Include="packages\System.Data.SQLite.EF6.1.0.97.0\lib\net45\" />
+    <Folder Include="packages\System.Data.SQLite.EF6.1.0.97.0\tools\net40\" />
+    <Folder Include="packages\System.Data.SQLite.EF6.1.0.97.0\tools\net451\" />
+    <Folder Include="packages\System.Data.SQLite.EF6.1.0.97.0\tools\net45\" />
+    <Folder Include="packages\System.Data.SQLite.Linq.1.0.97.0\content\net20\" />
+    <Folder Include="packages\System.Data.SQLite.Linq.1.0.97.0\content\net40\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.CognitoSync" Version="3.3.100.65" />
+  </ItemGroup>
+
+</Project>
