@@ -6,4 +6,4 @@ The AWS SDK for .NET CognitoSync SyncManager enables customers to easily sync da
 
 To build the repository into a NuGet package for distribution, run the *full-build* msbuild target.
 
-If you are looking for the Unity SyncManager, it is located in the "AWS SDK for .NET - Unity Archive."
+If you are looking for the Unity SyncManager, it is located in the Unity archive: https://github.com/aws/aws-sdk-unity-net
