@@ -45,16 +45,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="obj\**" />
-    <Compile Remove="Publish\**" />
-    <EmbeddedResource Remove="obj\**" />
-    <EmbeddedResource Remove="packages\**" />
-    <EmbeddedResource Remove="Publish\**" />
-    <None Remove="obj\**" />
-    <None Remove="Publish\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AWSSDK.CognitoSync" Version="3.5.0-beta" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.97.0" />
   </ItemGroup>
