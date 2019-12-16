@@ -1,4 +1,5 @@
-﻿//
+﻿#if BCL35
+//
 // Copyright 2014-2015 Amazon.com, 
 // Inc. or its affiliates. All Rights Reserved.
 // 
@@ -368,3 +369,4 @@ namespace Amazon.CognitoSync.SyncManager.Internal
         #endregion
     }
 }
+#endif

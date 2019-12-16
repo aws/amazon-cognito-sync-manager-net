@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net45;net35</TargetFrameworks>
+    <DefineConstants>$(DefineConstants);BCL</DefineConstants>
+    <Version>3.5.0.0-beta</Version>
+    <PackageId>AWSSDK.CognitoSync.SyncManager</PackageId>
+    <Title>AWSSDK - Amazon Cognito Sync Manager</Title>
+    <Product>AWSSDK.CognitoSync.SyncManager</Product>
+    <Description>Please use Amazon AppSync. This package is provided for existing customers. The AWS SDK for .NET CognitoSync SyncManager enables customers to easily sync data with Cognito with non-constant network availability.</Description>
+    <Authors>Amazon Web Services</Authors>
+    <Copyright>2019</Copyright>
+    <PackageTags>>AWS;Amazon;cloud;CognitoSync;CognitoSyncManager;aws-sdk-v3</PackageTags>
+    <PackageProjectUrl>https://github.com/aws/aws-sdk-net/</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIconUrl>https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/aws/aws-sdk-net/</RepositoryUrl>
+    <Company>Amazon Web Services</Company>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyVersion>3.5.0.0</AssemblyVersion>
+    <FileVersion>3.5.0.0</FileVersion>
+  </PropertyGroup>
+
+  <Choose>
+    <When Condition=" '$(AWSKeyFile)' == '' ">
+      <PropertyGroup>
+        <AssemblyOriginatorKeyFile>../awssdk.dll.snk</AssemblyOriginatorKeyFile>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <AssemblyOriginatorKeyFile>$(AWSKeyFile)</AssemblyOriginatorKeyFile>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net35'">
+    <DefineConstants>$(DefineConstants);BCL35;AWS_APM_API</DefineConstants>
+
+      <!-- workaround per https://github.com/Microsoft/msbuild/issues/1333 -->
+      <FrameworkPathOverride>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client</FrameworkPathOverride>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net45'">
+    <DefineConstants>$(DefineConstants);BCL45;AWS_ASYNC_API</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <Compile Remove="Publish\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <EmbeddedResource Remove="packages\**" />
+    <EmbeddedResource Remove="Publish\**" />
+    <None Remove="obj\**" />
+    <None Remove="Publish\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.CognitoSync" Version="3.5.0-beta" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.97.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../LICENSE" Pack="true" PackagePath=""/>
+  </ItemGroup>
+
+</Project>

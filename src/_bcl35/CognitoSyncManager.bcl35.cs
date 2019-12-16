@@ -1,4 +1,5 @@
-﻿using Amazon.CognitoSync.SyncManager.Internal;
+﻿#if BCL35
+using Amazon.CognitoSync.SyncManager.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,3 +43,4 @@ namespace Amazon.CognitoSync.SyncManager
         }
     }
 }
+#endif

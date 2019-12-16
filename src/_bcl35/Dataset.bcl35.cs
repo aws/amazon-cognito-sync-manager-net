@@ -1,3 +1,4 @@
+﻿#if BCL35
 //
 // Copyright 2014-2015 Amazon.com, 
 // Inc. or its affiliates. All Rights Reserved.
@@ -12,15 +13,12 @@ using System;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using System.Threading;
-using System.Threading.Tasks;
 
 
 namespace Amazon.CognitoSync.SyncManager
 {
-
     public partial class Dataset : IDisposable
     {
-
         private void DatasetSetupInternal()
         {
             NetworkChange.NetworkAvailabilityChanged += HandleNetworkChange;
@@ -45,33 +43,45 @@ namespace Amazon.CognitoSync.SyncManager
         #endregion
 
         #region Public Methods
+        /// <summary>
+        /// Synchronize <see cref="Dataset"/> between local storage and remote storage.
+        /// </summary>
+        /// <seealso href="http://docs.aws.amazon.com/cognito/latest/developerguide/synchronizing-data.html#synchronizing-local-data">Amazon Cognito Sync Dev. Guide - Synchronizing Local Data with the Sync Store</seealso>
+        public virtual void Synchronize()
+        {
+            if (!NetworkInterface.GetIsNetworkAvailable())
+            {
+                FireSyncFailureEvent(new NetworkException("Network connectivity unavailable."));
+                return;
+            }
+
+            SynchronizeHelper();
+        }
 
         /// <summary>
         /// Attempt to synchronize <see cref="Dataset"/> when connectivity is available. If
         /// the connectivity is available right away, it behaves the same as
-        /// <see cref="Dataset.SynchronizeAsync"/>. Otherwise it listens to connectivity
+        /// <see cref="Dataset.Synchronize()"/>. Otherwise it listens to connectivity
         /// changes, and will do a sync once the connectivity is back. Note that if
         /// this method is called multiple times, only the last synchronize request
         /// is kept. If either the dataset or the callback is garbage collected
         /// , this method will not perform a sync and the callback won't fire.
         /// </summary>
-        public async Task SynchronizeOnConnectivity(CancellationToken cancellationToken = default(CancellationToken))
+        public virtual void SynchronizeOnConnectivity()
         {
             if (NetworkInterface.GetIsNetworkAvailable())
             {
-                await SynchronizeHelperAsync(cancellationToken).ConfigureAwait(false);
+                SynchronizeHelper();
             }
             else
             {
                 waitingForConnectivity = true;
             }
         }
-
         #endregion
 
         #region Private Methods
-
-        private async void HandleNetworkChange(object sender, NetworkAvailabilityEventArgs e)
+        private void HandleNetworkChange(object sender, NetworkAvailabilityEventArgs e)
         {
             if (!waitingForConnectivity)
             {
@@ -80,28 +90,12 @@ namespace Amazon.CognitoSync.SyncManager
 
             if (e.IsAvailable)
             {
-                await SynchronizeAsync().ConfigureAwait(false);
+                Synchronize();
             }
         }
-
         #endregion
 
-        /// <summary>
-        /// Synchronize <see cref="Dataset"/> between local storage and remote storage.
-        /// </summary>
-        /// <seealso href="http://docs.aws.amazon.com/cognito/latest/developerguide/synchronizing-data.html#synchronizing-local-data">Amazon Cognito Sync Dev. Guide - Synchronizing Local Data with the Sync Store</seealso>
-        public async Task SynchronizeAsync(CancellationToken cancellationToken = default(CancellationToken))
-        {
-            if (!NetworkInterface.GetIsNetworkAvailable())
-            {
-                FireSyncFailureEvent(new NetworkException("Network connectivity unavailable."));
-                return;
-            }
-
-            await SynchronizeHelperAsync(cancellationToken).ConfigureAwait(false);
-        }
-
-        internal async Task SynchronizeHelperAsync(CancellationToken cancellationToken)
+        private void SynchronizeHelper()
         {
             try
             {
@@ -118,29 +112,7 @@ namespace Amazon.CognitoSync.SyncManager
 
                 waitingForConnectivity = false;
 
-                //make a call to fetch the identity id before the synchronization starts
-                await CognitoCredentials.GetIdentityIdAsync().ConfigureAwait(false);
-
-                // there could be potential merges that could have happened due to reparenting from the previous step,
-                // check and call onDatasetMerged
-                bool resume = true;
-                List<string> mergedDatasets = LocalMergedDatasets;
-                if (mergedDatasets.Count > 0)
-                {
-                    _logger.InfoFormat("Detected merge datasets - {0}", DatasetName);
-
-                    if (this.OnDatasetMerged != null)
-                    {
-                        resume = this.OnDatasetMerged(this, mergedDatasets);
-                    }
-                }
-
-                if (!resume)
-                {
-                    FireSyncFailureEvent(new OperationCanceledException(string.Format("Sync canceled on merge for dataset - {0}", this.DatasetName)));
-                    return;
-                }
-                await RunSyncOperationAsync(MAX_RETRY, cancellationToken).ConfigureAwait(false);
+                SynchornizeInternal();
             }
             catch (Exception e)
             {
@@ -148,5 +120,8 @@ namespace Amazon.CognitoSync.SyncManager
                 _logger.Error(e, "");
             }
         }
+
     }
 }
+
+#endif

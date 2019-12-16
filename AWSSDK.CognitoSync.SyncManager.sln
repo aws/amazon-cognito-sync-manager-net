@@ -3,13 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSSDK.CognitoSync.SyncManager.Net35", "AWSSDK.CognitoSync.SyncManager.Net35.csproj", "{D26CCC30-DA57-49D3-86AB-832D71618C63}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{E82CCB5C-ABCA-45A7-A9BC-632DC76912DB}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		awssdk.dll.snk = awssdk.dll.snk
+		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
+		CONTRIBUTING.md = CONTRIBUTING.md
+		LICENSE = LICENSE
+		NOTICE = NOTICE
+		README.md = README.md
+	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSSDK.CognitoSync.SyncManager.Net45", "AWSSDK.CognitoSync.SyncManager.Net45.csproj", "{82733157-A567-4952-85AB-6989B342E559}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSSDK.CognitoSync.SyncManager.NetStandard", "AWSSDK.CognitoSync.SyncManager.NetStandard.csproj", "{4CFCC92A-756C-43A8-AC2E-48F3E5341C8E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSSDK.CognitoSync.SyncManager.PCL", "AWSSDK.CognitoSync.SyncManager.PCL.csproj", "{44713A63-6D4B-4F6F-9AF8-578BA30F8333}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSSDK.CognitoSync.SyncManager", "src\AWSSDK.CognitoSync.SyncManager.csproj", "{8EA81FC2-7333-46A9-BDCF-82F2DE4288CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +22,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D26CCC30-DA57-49D3-86AB-832D71618C63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D26CCC30-DA57-49D3-86AB-832D71618C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D26CCC30-DA57-49D3-86AB-832D71618C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D26CCC30-DA57-49D3-86AB-832D71618C63}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82733157-A567-4952-85AB-6989B342E559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82733157-A567-4952-85AB-6989B342E559}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82733157-A567-4952-85AB-6989B342E559}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82733157-A567-4952-85AB-6989B342E559}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4CFCC92A-756C-43A8-AC2E-48F3E5341C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4CFCC92A-756C-43A8-AC2E-48F3E5341C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4CFCC92A-756C-43A8-AC2E-48F3E5341C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4CFCC92A-756C-43A8-AC2E-48F3E5341C8E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44713A63-6D4B-4F6F-9AF8-578BA30F8333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44713A63-6D4B-4F6F-9AF8-578BA30F8333}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44713A63-6D4B-4F6F-9AF8-578BA30F8333}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44713A63-6D4B-4F6F-9AF8-578BA30F8333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EA81FC2-7333-46A9-BDCF-82F2DE4288CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA81FC2-7333-46A9-BDCF-82F2DE4288CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA81FC2-7333-46A9-BDCF-82F2DE4288CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA81FC2-7333-46A9-BDCF-82F2DE4288CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
