@@ -10,10 +10,11 @@
     <Authors>Amazon Web Services</Authors>
     <Copyright>2019</Copyright>
     <PackageTags>>AWS;Amazon;cloud;CognitoSync;CognitoSyncManager;aws-sdk-v3</PackageTags>
-    <PackageProjectUrl>https://github.com/aws/aws-sdk-net/</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/aws/amazon-cognito-sync-manager-net</PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <!-- Replace with PackageIcon when Visual Studio supports it. -->
     <PackageIconUrl>https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/aws/aws-sdk-net/</RepositoryUrl>
+    <RepositoryUrl>https://github.com/aws/amazon-cognito-sync-manager-net</RepositoryUrl>
     <Company>Amazon Web Services</Company>
     <SignAssembly>true</SignAssembly>
     <AssemblyVersion>3.5.0.0</AssemblyVersion>
@@ -51,6 +52,7 @@
 
   <ItemGroup>
     <None Include="../LICENSE" Pack="true" PackagePath=""/>
+    <None Include="../icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>
