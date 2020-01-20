@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if AWS_ASYNC_API
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading;
@@ -217,3 +218,4 @@ namespace Amazon.CognitoSync.SyncManager.Internal
         #endregion
     }
 }
+#endif

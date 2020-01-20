@@ -35,3 +35,6 @@ using System.Diagnostics.CodeAnalysis;
 
 [module: SuppressMessage("Microsoft.Design", "CA1030:UseEventsWhereAppropriate", Scope = "member", Target = "Amazon.CognitoSync.SyncManager.Dataset.#FireSyncFailureEvent(System.Exception)")]
 [module: SuppressMessage("Microsoft.Design", "CA1030:UseEventsWhereAppropriate", Scope = "member", Target = "Amazon.CognitoSync.SyncManager.Dataset.#FireSyncSuccessEvent(System.Collections.Generic.List`1<Amazon.CognitoSync.SyncManager.Record>)")]
+
+[module: SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Scope = "member", Target = "Amazon.CognitoSync.SyncManager.Internal.CognitoSyncStorage.#PutRecordsAsync(System.String,System.Collections.Generic.List`1<Amazon.CognitoSync.SyncManager.Record>,System.String,System.Threading.CancellationToken)")]
+[module: SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Scope = "member", Target = "Amazon.CognitoSync.SyncManager.Internal.CognitoSyncStorage.#ListDatasetMetadataAsync(System.Threading.CancellationToken)")]

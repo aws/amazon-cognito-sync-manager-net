@@ -13,7 +13,7 @@ using Amazon.CognitoSync.SyncManager.Internal;
 using Amazon.CognitoIdentity;
 using Logger = Amazon.Runtime.Internal.Util.Logger;
 using Amazon.Util.Internal;
-#if BCL45 || PCL
+#if BCL45
 using System.Threading.Tasks;
 #endif
 using System.Threading;
