@@ -12,8 +12,7 @@
     <PackageTags>>AWS;Amazon;cloud;CognitoSync;CognitoSyncManager;aws-sdk-v3</PackageTags>
     <PackageProjectUrl>https://github.com/aws/amazon-cognito-sync-manager-net</PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <!-- Replace with PackageIcon when Visual Studio supports it. -->
-    <PackageIconUrl>https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/aws/amazon-cognito-sync-manager-net</RepositoryUrl>
     <Company>Amazon Web Services</Company>
     <SignAssembly>true</SignAssembly>
