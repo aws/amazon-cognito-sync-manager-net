@@ -20,18 +20,9 @@
     <FileVersion>3.5.0.0</FileVersion>
   </PropertyGroup>
 
-  <Choose>
-    <When Condition=" '$(AWSKeyFile)' == '' ">
-      <PropertyGroup>
-        <AssemblyOriginatorKeyFile>../awssdk.dll.snk</AssemblyOriginatorKeyFile>
-      </PropertyGroup>
-    </When>
-    <Otherwise>
-      <PropertyGroup>
-        <AssemblyOriginatorKeyFile>$(AWSKeyFile)</AssemblyOriginatorKeyFile>
-      </PropertyGroup>
-    </Otherwise>
-  </Choose>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../public.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net35'">
     <DefineConstants>$(DefineConstants);BCL35;AWS_APM_API</DefineConstants>
